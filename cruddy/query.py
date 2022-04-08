@@ -1,3 +1,6 @@
+from flask import url_for
+from werkzeug.utils import redirect
+
 from __init__ import login_manager, db
 from cruddy.model import Users
 from flask_login import current_user, login_user, logout_user
@@ -111,9 +114,8 @@ def authorize(name, email, password, phone):
 
 # logout user
 def logout():
-    logout_user()  # removes login state of user from session
-
-
+        logout_user()  # removes login state of user from session
+        return redirect(url_for('crud'))
 # Test some queries from implementations above
 if __name__ == "__main__":
 

@@ -9,12 +9,23 @@
     <script src={{  url_for("crud.static", filename="javascript/validation.js", version='101') }}></script>
     <script src={{  url_for("crud.static", filename="javascript/reload_page.js", version='101') }}></script>
 {% endblock %}
+<script>
 
+    function logot(){
+        $.ajax({
+            url: "query.py",
+            context: document.body
+        }).done(logout(), {
+        });
+    }
+</script>
 <!-- CONTENT (in <body>), content for this page -->
 {% block content %}
     <div class="container py-4">
         <header class="pb-3 mb-4 border-bottom border-primary text-dark">
             <span class="fs-4">SQL CRUD Admin Page</span>
+            <p>pp</p>
+            <button onclick="location.href='http://127.0.0.1:5222/crud/logout'" type="button"> logout</button>
         </header>
     </div>
     <div class="container py-4 text-light bg-success">
