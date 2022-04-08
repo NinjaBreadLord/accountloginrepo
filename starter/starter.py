@@ -1,5 +1,7 @@
 import requests
 from flask import Blueprint, render_template, request
+from flask_login import login_required
+
 from algorithm.image import image_data
 
 from pathlib import \
@@ -36,6 +38,7 @@ def rgb():
 
 
 @app_starter.route('/joke', methods=['GET', 'POST'])
+@login_required
 def joke():
     """
     # use this url to test on and make modification on you own machine

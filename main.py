@@ -1,4 +1,6 @@
 from flask import render_template
+from flask_login import login_required
+
 from __init__ import app
 
 from starter.starter import app_starter
@@ -19,6 +21,7 @@ app.register_blueprint(app_y2022)
 
 
 @app.route('/')
+@login_required
 def index():
     return render_template("index.html")
 
