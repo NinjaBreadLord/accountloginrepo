@@ -45,11 +45,11 @@ def crud_login():
 
     # if not logged in, show the login page
     return render_template("login.html")
-@app_crud.route("/logout")
+@app_crud.route("/logout")        # this things doing stuff, it basically runs the logout function that is with the flask-login docs
 @login_required
 def logout():
     logout_user()  # removes login state of user from session
-    return redirect(url_for('crud.crud'))
+    return redirect(url_for('crud.crud')) # redirects to the crud base page
 
 @app_crud.route('/authorize/', methods=["GET", "POST"])
 def crud_authorize():
