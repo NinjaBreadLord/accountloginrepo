@@ -49,7 +49,7 @@ def crud_login():
 @login_required
 def logout():
     logout_user()  # removes login state of user from session
-    return redirect(url_for('crud.crud')) # redirects to the crud base page
+    return redirect(url_for('crud.login')) # redirects to the crud base page
 
 @app_crud.route('/authorize/', methods=["GET", "POST"])
 def crud_authorize():
